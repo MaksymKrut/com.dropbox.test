@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="SmokeTests" verbose="2" >
+    <test name="LoginTest">
+        <classes>
+            <class name="Tests.LoginTest"/>
+        </classes>
+    </test>
+    <test name="LogoutTest">
+        <classes>
+            <class name="Tests.LogoutTest"/>
+        </classes>
+    </test>
+    <test name="UploadFileTest">
+        <classes>
+            <class name="Tests.UploadFileTest"/>
+        </classes>
+    </test>
+</suite>
+
+
+
+
