@@ -1,15 +1,13 @@
+/**
+ * Created by Maksym Krutskykh on 30-Sep-16.
+ */
 package Pages;
 
 import Utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-
 import java.io.IOException;
-
-/**
- * Created by Maksym Krutskykh on 30-Sep-16.
- */
 
 public class LoginPage {
 
@@ -37,6 +35,7 @@ public class LoginPage {
             loginEmailField.sendKeys(username);
             loginPasswordField.sendKeys(password);
             loginButton.click();
+            homePage.waitForHomePage();
             homePage.homePageOpened();
         } catch (Exception e){
             return false;
@@ -45,5 +44,4 @@ public class LoginPage {
     return true;
 
     }
-
 }

@@ -1,12 +1,11 @@
+/**
+ * Created by Maksym Krutskykh on 30-Sep-16.
+ */
 package Utilities;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-/**
- * Created by Maksym Krutskykh on 30-Sep-16.
- */
 
 public class Driver {
     public static WebDriver driver = null;

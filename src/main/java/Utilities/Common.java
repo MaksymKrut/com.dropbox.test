@@ -1,16 +1,21 @@
+/**
+ * Created by Maksym Krutskykh on 30-Sep-16.
+ */
 package Utilities;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by Maksym Krutskykh on 30-Sep-16.
- */
 public class Common {
+
+    public static WebDriverWait webDriverWait(Integer timeout) {
+        WebDriverWait wait = new WebDriverWait(Driver.driver, timeout);
+        return wait;
+    }
+
     public static boolean implicitWait(long time) {
         try {
             Driver.driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
@@ -21,16 +26,18 @@ public class Common {
         return true;
     }
 
-    public static WebElement getWhenVisible(By locator, int timeout) {
-        WebElement element;
-        WebDriverWait wait = new WebDriverWait(Driver.driver, timeout);
-        element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    public static WebElement explicitWait(WebElement element, int timeout) {
+        webDriverWait(timeout).until(ExpectedConditions.visibilityOf(element));
+        return element;
+    }
+
+    public static WebElement explicitWaitByLocator(By locator, int timeout) {
+        WebElement element = webDriverWait(timeout).until(ExpectedConditions.visibilityOfElementLocated(locator));
         return element;
     }
 
     public static void clickWhenReady(By locator, int timeout) {
-        WebDriverWait wait = new WebDriverWait(Driver.driver, timeout);
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+        WebElement element = webDriverWait(timeout).until(ExpectedConditions.elementToBeClickable(locator));
         element.click();
     }
 

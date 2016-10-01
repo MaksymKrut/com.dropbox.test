@@ -1,19 +1,29 @@
-package Pages;
-
-import Utilities.Common;
-import org.openqa.selenium.By;
-
 /**
  * Created by Maksym Krutskykh on 30-Sep-16.
  */
+package Pages;
+
+import Utilities.Common;
+import Utilities.Driver;
+import org.openqa.selenium.By;
+import org.testng.Assert;
 
 public class HomePage {
 
-    By userMenu = By.id("personal-nav-item");
+    private By userMenu = By.id("personal-nav-item");
 
     public boolean homePageOpened(){
         try {
-            Common.getWhenVisible(userMenu, 30);
+            Assert.assertEquals(Driver.driver.getTitle(), "Home - Dropbox", "Title Dropbox was not found!");
+        } catch (Exception e){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean waitForHomePage(){
+        try {
+            Common.explicitWaitByLocator(userMenu, 30);
         } catch (Exception e){
             return false;
         }

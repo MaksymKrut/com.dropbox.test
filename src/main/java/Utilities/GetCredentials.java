@@ -1,3 +1,6 @@
+/**
+ * Created by Maksym Krutskykh on 30-Sep-16.
+ */
 package Utilities;
 
 import java.io.FileNotFoundException;
@@ -5,9 +8,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-/**
- * Created by Maksym Krutskykh on 30-Sep-16.
- */
 
 public class GetCredentials {
 
