@@ -3,13 +3,26 @@
  */
 package Utilities;
 
+import Pages.*;
+import Tests.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.concurrent.TimeUnit;
 
 public class Common {
+
+    public static LoginPage loginPage;
+    public static LoginTest loginTestPage;
+    public static HomePage homePage;
+
+    public static void loadPageObjects() {
+        loginPage = PageFactory.initElements(Driver.driver, LoginPage.class);
+        loginTestPage = PageFactory.initElements(Driver.driver, LoginTest.class);
+        homePage = PageFactory.initElements(Driver.driver, HomePage.class);
+    }
 
     public static WebDriverWait webDriverWait(Integer timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.driver, timeout);

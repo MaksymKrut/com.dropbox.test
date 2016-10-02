@@ -19,12 +19,13 @@ public class LoginTest {
     @BeforeClass
     public void setUp() throws Exception {
         Driver.driver = Driver.browser("firefox");
-        loginPage = PageFactory.initElements(Driver.driver, LoginPage.class);
+        Common.loadPageObjects();
+        loginPage = Common.loginPage;
         Common.startUrlInBrowser("https://www.dropbox.com/login");
     }
 
     @Test
-    public void testMain() throws Exception {
+    public void loginTest() throws Exception {
         GetCredentials getCredentials = new GetCredentials();
         String username = getCredentials.getPropertyValue("username");
         String password = getCredentials.getPropertyValue("password");

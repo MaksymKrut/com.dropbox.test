@@ -15,6 +15,7 @@ public class HomePage {
     public boolean homePageOpened(){
         try {
             Assert.assertEquals(Driver.driver.getTitle(), "Home - Dropbox", "Title Dropbox was not found!");
+            System.out.println("\n\nHome page is opened!\n\n");
         } catch (Exception e){
             return false;
         }
