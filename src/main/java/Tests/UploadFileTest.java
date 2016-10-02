@@ -5,5 +5,4 @@ package Tests;
 
 public class UploadFileTest {
 
-    // Upload .txt parsed from JSON source file DropBox
 }

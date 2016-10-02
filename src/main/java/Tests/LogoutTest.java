@@ -26,6 +26,8 @@ public class LogoutTest {
         loginPage.loginPageOpened();
         loginTestPage.loginTest();
         homePage.homePageOpened();
+        homePage.logoutFromDropbox();
+        loginPage.waitForLoginPage();
     }
 
     @AfterClass

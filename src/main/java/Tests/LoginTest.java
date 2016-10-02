@@ -8,7 +8,6 @@ import Pages.LoginPage;
 import Utilities.Common;
 import Utilities.Driver;
 import Utilities.GetCredentials;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

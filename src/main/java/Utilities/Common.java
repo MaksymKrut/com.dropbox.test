@@ -54,6 +54,10 @@ public class Common {
         element.click();
     }
 
+    public static void clickWhenElementReady(WebElement element, int timeout) {
+        webDriverWait(timeout).until(ExpectedConditions.elementToBeClickable(element)).click();
+    }
+
     public static boolean startUrlInBrowser(String url) {
         try {
             Driver.driver.get(url);

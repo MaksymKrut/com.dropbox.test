@@ -3,6 +3,7 @@
  */
 package Pages;
 
+import Utilities.Common;
 import Utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,6 +25,15 @@ public class LoginPage {
         try {
             Assert.assertEquals(Driver.driver.getTitle(), "Login - Dropbox", "Title Dropbox was not found!");
             System.out.println("\n\nLogin page is opened!\n\n");
+        } catch (Exception e){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean waitForLoginPage(){
+        try {
+            Common.explicitWait(loginButton, 30);
         } catch (Exception e){
             return false;
         }
