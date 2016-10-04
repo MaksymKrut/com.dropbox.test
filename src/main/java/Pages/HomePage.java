@@ -21,6 +21,26 @@ public class HomePage {
     @FindBy(linkText = "Sign out")
     private WebElement signOut = null;
 
+    @FindBy(className = "global-actions__button-sprite")
+    private WebElement fileUploadButton = null;
+
+    @FindBy(className = "db-modal-box")
+    private WebElement fileUploadModal = null;
+
+    @FindBy(className = "basic-uploader-link")
+    private WebElement basicUploadLink = null;
+
+    @FindBy(name = "file")
+    private WebElement fileUploadField = null;
+
+    @FindBy(className = "sprite_web.s_web_s_check")
+    private WebElement fileUploadedCheck = null;
+
+    @FindBy(className = "dbmodal-button.c-btn.c-btn--secondary")
+    private WebElement secondaryButton = null;
+    @FindBy(className = "c-btn--primary")
+    private WebElement primaryButton = null;
+
     public boolean homePageOpened(){
         try {
             Assert.assertEquals(Driver.driver.getTitle(), "Home - Dropbox", "Title Dropbox was not found!");
@@ -38,6 +58,41 @@ public class HomePage {
             return false;
         }
         return true;
+    }
+
+    public boolean waitForUploadModal(){
+        try {
+            Common.explicitWait(fileUploadModal, 30);
+        } catch (Exception e){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean fileUploadDropbox() throws IOException {
+
+        try {
+            Common.clickWhenElementReady(fileUploadButton, 10);
+            System.out.println("\n\nUpload file clicked!\n\n");
+
+            Common.clickWhenElementReady(basicUploadLink, 10);
+            System.out.println("\n\nBasic Upload clicked!\n\n");
+
+            Common.clickWhenElementReady(primaryButton, 10);
+            System.out.println("\n\nUpload button clicked!\n\n");
+
+            String path = Common.getAbsoluteResourceFilePath("test.pdf");
+
+            Common.uploadFile(path);
+
+            Common.sleep(20);
+
+        } catch (Exception e){
+            return false;
+        }
+
+        return true;
+
     }
 
     public boolean logoutFromDropbox() throws IOException {
